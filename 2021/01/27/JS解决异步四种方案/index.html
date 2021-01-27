@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JS解决异步四种方案 - 酷酷的发哥</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="js异步解决的发展历程：
+回调函数—–&amp;gt;peomise——&amp;gt;generator + co—–&amp;gt;async + await
+
+解决方案之回调函数
+回调函数可以解决存在的异步问题，但回,"> 
+    <meta name="author" content="Zhifa Li"> 
+    <link rel="alternative" href="atom.xml" title="酷酷的发哥" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">酷酷的发哥</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">JS解决异步四种方案</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JS解决异步四种方案</h1>
+        <div class="stuff">
+            <span>一月 27, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="js异步解决的发展历程："><a href="#js异步解决的发展历程：" class="headerlink" title="js异步解决的发展历程："></a>js异步解决的发展历程：</h1><ul>
+<li>回调函数—–&gt;peomise——&gt;generator + co—–&gt;async + await</li>
+</ul>
+<h3 id="解决方案之回调函数"><a href="#解决方案之回调函数" class="headerlink" title="解决方案之回调函数"></a>解决方案之回调函数</h3><ul>
+<li>回调函数可以解决存在的异步问题，但回调函数分为，同步与异步：</li>
+<li>回调函数本身是我们约定俗成的一种叫法，我们定义它，但是并不会自己去执行它，它最终被其他人执行了。</li>
+<li>优点：比较容易理解</li>
+<li>缺点：</li>
+</ul>
+<ol>
+<li>高耦合，维护困难，回调地狱;</li>
+<li>每个任务只能指定一个回调函数;</li>
+<li>如果几个异步操&gt;作之间并没有顺序之分，同样也要等待上一个操作执行结束再进行下一个操作。</li>
+</ol>
+<h3 id="解决方案之promise的使用"><a href="#解决方案之promise的使用" class="headerlink" title="解决方案之promise的使用"></a>解决方案之promise的使用</h3><ul>
+<li>Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。</li>
+<li>Promise本身不是异步，只是我们去编写异步代码的一种方式</li>
+<li>Es6将promise纳入自己规范的时候，也遵循了一个相应的标准 — ``Promise A+规范。</li>
+<li>将其归纳为4321规范 4：4大术语 3：3种状态 2：2种事件 1：1个对象</li>
+<li>四大术语</li>
+</ul>
+<ol>
+<li>解决（fulfill）：指一个 promise 成功时进行的一系列操作，如状态的改变、回调的执行。虽然规范中用 fulfill 来表示解决，但在后世的 promise 实现多以 resolve 来指代之。</li>
+<li>拒绝（reject）：指一个 promise 失败时进行的一系列操作。</li>
+<li>终值（eventual value）：所谓终值，指的是 promise 被解决时传递给解决回调的值，由于 promise 有一次性的特征，因此当这个值被传递时，标志着 promise 等待态的结束，故称之终值，有时也直接简称为值（value）。</li>
+<li>据因（reason）：也就是拒绝原因，指在 promise 被拒绝时传递给拒绝回调的值。</li>
+</ol>
+<ul>
+<li>3种状态</li>
+<li>等待态（Pending）</li>
+<li>执行态（Fulfilled）</li>
+<li>拒绝态（Rejected）</li>
+</ul>
+<ol>
+<li>执行态（Fulfilled）<br>处于执行态时，promise 需满足以下条件：</li>
+</ol>
+<ul>
+<li><p>不能迁移至其他任何状态</p>
+</li>
+<li><p>必须拥有一个不可变的终值</p>
+</li>
+<li><p>拒绝态（Rejected）</p>
+</li>
+<li><p>处于拒绝态时，promise 需满足以下条件：</p>
+</li>
+<li><p>不能迁移至其他任何状态</p>
+</li>
+<li><p>必须拥有一个不可变的据因</p>
+</li>
+<li><p>2种事件</p>
+</li>
+<li><p>pending –&gt; fulfilled</p>
+</li>
+<li><p>pendeing –&gt; rejected</p>
+</li>
+<li><p>在状态转换的时候，就会触发事件。<br>如果是pending –&gt; fulfiied，就会触发onFulFilled事件 如果是pendeing –&gt; rejected，就会触发onRejected事件</p>
+</li>
+<li><p>1个对象 就是指promise对象</p>
+</li>
+</ul>
+<h3 id="解决方案之generator-与-co"><a href="#解决方案之generator-与-co" class="headerlink" title="解决方案之generator 与 co"></a>解决方案之generator 与 co</h3><ul>
+<li>生成器的定义类似于普通的函数，只是要加一个*号，比如：function * g() { // 定义一个空生成器}。yield关键字是生成器函数中的亮点（只能在Generator函数中才能使用，普通函数中不可使用），其字面意思为“产出”，每次程序执行到yield的时候，都会“产出”一个结果。</li>
+<li>其实Generator和 yield 两个词用的已经非常形象了，Generator就类似于一个工厂，每当消费者需要某种东西的时候，yield 就负责去生产，生产完了返回给消费者。</li>
+</ul>
+<h3 id="解决方案之async-与-await"><a href="#解决方案之async-与-await" class="headerlink" title="解决方案之async 与 await"></a>解决方案之async 与 await</h3><ul>
+<li>sync/await是对Promise的优化： async/await是基于Promise的，是进一步的一种优化，不过在写代码时，Promise本身的API出现得很少，很接近同步代码的写法；</li>
+</ul>
+<ol>
+<li><p>async关键字<br>1）表明程序里面可能有异步过程：<br>里面可以有await关键字；也可以没有（没有表示全部同步）；<br ><br>2）非阻塞：<br>async函数里面如果有异步过程会等待，但是async函数本身会马上返回，不会阻塞当前线程，async函数内部由await关键字修饰的异步过程，工作在相应的协程上，会阻塞等待异步任务的完成再返回；<br ><br>3）async函数返回类型为Promise对象：<br ><br>4）无等待<br ></p>
+</li>
+<li><p>await关键字<br>1）await只能在async函数内部使用：不能放在普通函数里面，否则会报错；<br ><br>2）await关键字后面跟Promise对象：在Pending状态时，相应的协程会交出控制权，进入等待状态，这是协程的本质；<br ><br>3）await是async wait的意思： wait的是resolve(data)的消息，并把数据data返回，<br ><br>4）await后面也可以跟同步代码： 不过系统会自动将其转化成一个Promsie对象，<br ></p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
