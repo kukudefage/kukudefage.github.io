@@ -5,12 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Archive: 2021/1</title>
+    <title>ref和$refs有什么用 - 酷酷的发哥</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="ref和$refs有什么作用？ref：
+ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果,"> 
     <meta name="author" content="Zhifa Li"> 
     <link rel="alternative" href="atom.xml" title="酷酷的发哥" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -33,87 +34,89 @@
 <body class="loading">
     <span id="config-title" style="display:none">酷酷的发哥</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="iconfont icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                    <div class="timeline">
-                      <h2 class="timeline-title">归档: 10篇</h2><hr>
-                      
-                      
-                        
-                          <h3 class="timeline-subtitle">2021</h3>
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-29</time>
-                          <a target="_self" href="/2021/01/29/ref%E5%92%8C-refs%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/">ref和$refs有什么用</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/JS%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%A1%88/">JS解决异步四种方案</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/vue2-0%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/">vue2.0数据双向绑定</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/vue-nextTick%E5%8E%9F%E7%90%86/">vue.nextTick原理</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/URL%E8%BE%93%E5%85%A5%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0/">URL输入到页面呈现</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/TS/">TS</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/SEO/">SEO</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/RBAC%E6%9D%83%E9%99%90%E8%A7%92%E8%89%B2%E5%88%86%E9%85%8D/">RBAC权限角色分配</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/History%E8%B7%AF%E7%94%B1%E5%92%8Chash%E8%B7%AF%E7%94%B1/">History路由和hash路由</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2021-01-27</time>
-                          <a target="_self" href="/2021/01/27/React%20%E7%BB%84%E4%BB%B6%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">React 组件性能优化</a>
-                        </div>
-                      
-                    </div>
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">ref和$refs有什么用</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
 
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">ref和$refs有什么用</h1>
+        <div class="stuff">
+            <span>一月 29, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="ref和-refs有什么作用？"><a href="#ref和-refs有什么作用？" class="headerlink" title="ref和$refs有什么作用？"></a>ref和$refs有什么作用？</h1><h3 id="ref："><a href="#ref：" class="headerlink" title="ref："></a>ref：</h3><ul>
+<li>ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。接受一个参数值并返回一个响应式且可改变的 ref 对象。ref 对象拥有一个指向内部值的单一属性 .value。</li>
+</ul>
+<h3 id="refs："><a href="#refs：" class="headerlink" title="$refs："></a>$refs：</h3><ul>
+<li>一个对象，持有注册过 ref attribute 的所有 DOM 元素和组件实例。<br>  在某些情况下，我们需要在典型数据流之外强制修改子组件，被修改的子组件可能是一个 React 组件的实例，也可能是一个 DOM 元素，例如:</li>
+</ul>
+<p>管理焦点，文本选择或媒体播放。<br>触发强制动画。<br>集成第三方 DOM 库。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li><p>ref用在DOM上时，通过this.$refs[ref名称]访问的是该DOM元素节点；ref用在组件上时，通过this.$refs[ref名称]访问的是该组件的实例对象，可以进而调用组件的方法或者获取组件的属性等；</p>
+</li>
+<li><p>当同一组件内部，有多处ref引用值相同的情况时，this.$refs[ref名称]指向文档流中靠下的组件或DOM节点，若是父子关系，则指向父级组件或DOM节点；</p>
+</li>
+<li><p>若ref的值是个变量，只要不是用在v-for里，通过this.$refs[变量名称]指向的依旧是该DOM节点或组件实例，且当出现ref值重复时，仍然满足取靠下的节点或是父级节点的规则；</p>
+</li>
+<li><p>若ref用在v-for里，当循环内的ref值相同时，this.$refs[ref名称]获取到的是该DOM节点或组件的数组，当ref值不同时，需提供this.$refs[ref名称][0]来获取该DOM节点或组件实例。</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 
 
