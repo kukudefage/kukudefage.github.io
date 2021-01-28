@@ -15,6 +15,8 @@
     <link rel="alternative" href="atom.xml" title="酷酷的发哥" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
     
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -72,7 +74,7 @@
 <h1 id="vue2-0与3-0的区别"><a href="#vue2-0与3-0的区别" class="headerlink" title="vue2.0与3.0的区别"></a>vue2.0与3.0的区别</h1><p>·  3.0比2.0 快2倍<br /><br>·  3.0去掉了filter, 没有beforeCreate created,用setup取代<br /><br>· reactivity是可以单独作为库使用的 <br /><br>· 单独功能可以抽离 取代了mixin  优于mixin 解决上下反复横跳<br /><br>· 支持多个子节点 fragment<br /><br>· setup里没有this<br /><br>· Proxy实现响应式不需要set delete  兼容性并不好<br /><br>· 响应式方面 性能得到很大提升 不用初始化的时候就递归遍历属性<br /><br>· 响应式不区分数组和对象<br /><br>· 3.0兼容IE12以上<br /><br>· composition api 可以和 options API 同时存在<br /></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
                 <source type="audio/mpeg" src="">
             </audio>
             
@@ -91,13 +93,13 @@
         </div>
         
     <div id='gitalk-container' class="comment link"
-		data-enable='false'
-        data-ae='false'
+		data-enable='true'
+        data-ae='true'
         data-ci=''
         data-cs=''
         data-r=''
         data-o=''
-        data-a=''
+        data-a='kukudefage'
         data-d='false'
     >查看评论</div>
 
@@ -110,6 +112,8 @@
     </div>
 </div>
 </body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
