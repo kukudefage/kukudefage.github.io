@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景视频测试</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>背景视频测试</h1>
+        <p>如果您能看到这段文字，说明背景视频功能已经正确配置。</p>
+        <p>请将您的背景视频文件命名为 <code>background-video.mp4</code> 并放置在 <code>source/video/</code> 目录下。</p>
+    </div>
+    
+    <!-- 引入背景视频脚本 -->
+    <script src="/js/background-video.js"></script>
+</body>
+</html>
